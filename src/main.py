@@ -27,9 +27,12 @@ def main( )-> None:
     """
     jdbc_driver_path = os.path.join(os.path.dirname(__file__), '..', 'lib', "postgresql-42.7.3.jar")
 
+    print("printing the path to JDBC driver", jdbc_driver_path)
+
     # define the path to the file to read
 
     sourceFile_path = os.path.join(os.path.dirname(__file__), '..', 'FileStore', "WordData.txt")
+    print("printing the path to word or text document to process",sourceFile_path)
 
     # Extract
 
@@ -101,7 +104,8 @@ def main( )-> None:
     # Load
 
     driver = "org.postgresql.Driver"
-    url = "jdbc:postgresql://database-3.cte0iogswxo4.eu-north-1.rds.amazonaws.com/"
+    #url = "jdbc:postgresql://database-3.cte0iogswxo4.eu-north-1.rds.amazonaws.com/"
+    url = "jdbc:postgresql://database-1.c5oa4i6owxbm.eu-north-1.rds.amazonaws.com/"
     # table = "emma_schema_pyspark.WordCountTable"
     table = "my_etl_schema_pyspark.WordCountTable1"
     user = "postgres"
@@ -112,7 +116,8 @@ def main( )-> None:
     # Establish connection to PostgreSQL
 
     conn = psycopg2.connect(
-        host="database-3.cte0iogswxo4.eu-north-1.rds.amazonaws.com",
+        host="database-1.c5oa4i6owxbm.eu-north-1.rds.amazonaws.com",
+        #host="database-3.cte0iogswxo4.eu-north-1.rds.amazonaws.com",
         port=port,
         dbname="postgres",
         user="postgres",
